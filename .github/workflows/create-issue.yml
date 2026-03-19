@@ -14,8 +14,6 @@ jobs:
     permissions:
       issues: write
       contents: read
-    env:
-      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
