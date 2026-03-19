@@ -1,3 +1,5 @@
+# 2: Add a Color to the Theme
+
 ## Value Proposition
 
 **As a** user,

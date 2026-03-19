@@ -1,3 +1,5 @@
+# 7: Fetch API for Contrast Check
+
 ## Value Proposition
 
 **As a** Developer

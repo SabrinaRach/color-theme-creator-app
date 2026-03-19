@@ -1,3 +1,5 @@
+# 3: Delete a Color from the Theme
+
 ## Value Proposition
 
 **As a** user,
