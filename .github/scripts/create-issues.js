@@ -1,8 +1,8 @@
 import { readdirSync, readFileSync } from "fs";
 import path from "path";
 
-export default async function createIssues({ cwd, github, context, core }) {
-  const templatesDir = path.join(cwd, ".github", "templates");
+export default async function createIssues({ github, context, core }) {
+  const templatesDir = path.join(process.cwd(), ".github", "templates");
 
   const files = readdirSync(templatesDir)
     .filter((file) => file.endsWith(".md"))
@@ -11,9 +11,16 @@ export default async function createIssues({ cwd, github, context, core }) {
       const { title, body } = getTitleAndBody(content);
 
       return {
+        path: file,
         title,
         body,
       };
+    })
+    .filter((file) => {
+      if (file.title) return true;
+
+      core.warning(`No h1 title found in ${file.path}`);
+      return false;
     });
 
   for (const { title, body } of files) {
@@ -25,10 +32,8 @@ export default async function createIssues({ cwd, github, context, core }) {
       });
 
       core.notice(`Issue created: ${title}`);
-      console.log(`Issue created: ${title}`);
     } catch (error) {
       core.error(`Error creating issue ${title}`);
-      console.error(`Error creating issue ${title}: ${error.message}`);
     }
   }
 }
@@ -37,9 +42,7 @@ function getTitleAndBody(content) {
   const titleMatch = content.trim().match(/# (.*)/)[1];
 
   if (!titleMatch) {
-    throw new Error(
-      "Title not found. Make sure to add a h1 title to the template.",
-    );
+    return { title: null, body: content };
   }
 
   const title = titleMatch.trim();

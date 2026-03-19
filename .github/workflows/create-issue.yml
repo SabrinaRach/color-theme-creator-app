@@ -22,5 +22,5 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const {default: script } = await import('${{ github.workspace }}/.github/scripts/create-issues.js')
-            await script({ github, context, core, cwd: '${{ github.workspace }}' })
+            const { default: script } = await import('${{ github.workspace }}/.github/scripts/create-issues.js')
+            await script({ github, context, core })
