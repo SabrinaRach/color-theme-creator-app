@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1>Theme Creator</h1>
-      // display colors here
+      
     </>
   );
 }
