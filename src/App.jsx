@@ -6,10 +6,12 @@ function App() {
   return (
     <>
       <h1>Theme Creator</h1>
-      
+
       {/* for every color: create a Color component and add the matching color to this component 
       add key to uniquely identify each card*/}
-      {initialColors.map((color) => <Color key={color.id} color={color} /> )}
+      {initialColors.map((color) => (
+        <Color key={color.id} color={color} />
+      ))}
     </>
   );
 }
