@@ -1,8 +1,12 @@
 import "./ColorForm.css";
 import ColorInput from "../ColorInput/ColorInput";
 import { nanoid } from "nanoid"; /* to give every color an unique id */
+import { useState } from "react";
 
 export default function ColorForm({ onAddColor }) {
+  const [hex, setHex] = useState("#000000");
+  const [contrastText, setContrastText] = useState("#ffffff");
+
   /* when user submits the form: */
   function handleSubmit(event) {
     event.preventDefault();
@@ -14,7 +18,9 @@ export default function ColorForm({ onAddColor }) {
     }; /* add unique id to colorFormData object */
     console.log(newColor);
     onAddColor(newColor);
-    event.target.reset(); /* leert das Feld wieder ---> does not work! */
+    setHex("#000000") /* sets it back to new state = default value for hex */
+    setContrastText("#ffffff") /* sets it back to new state = default value for contrast text */
+    event.target.reset(); /* to empty the input fields */
   }
   return (
     /* Creating a form to submit colors to a new theme */
@@ -31,7 +37,8 @@ export default function ColorForm({ onAddColor }) {
       <label htmlFor="hex">Hex</label>
       <ColorInput
         /* type="text" name="hex"  */ id="hex"
-        defaultValue="#000000"
+        value={hex}
+        onChange={(event) => setHex(event.target.value)}
         required
       />
 
@@ -40,7 +47,8 @@ export default function ColorForm({ onAddColor }) {
         /* type="text"
         name="contrastText" */
         id="contrastText"
-        defaultValue="#ffffff"
+        value={contrastText}
+        onChange= {(event) => setContrastText(event.target.value)}
         required
       />
 
