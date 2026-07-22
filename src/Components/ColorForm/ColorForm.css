@@ -1,0 +1,14 @@
+/* --- Styling für Formular --- */
+
+.color-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 300px;
+    margin: 15px;
+}
+
+.add-color-button {
+    padding: 2px;
+    cursor: pointer;
+}
