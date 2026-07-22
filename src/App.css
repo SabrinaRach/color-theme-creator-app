@@ -21,13 +21,13 @@ body {
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 20px rgb(243, 243, 236);
+    text-shadow: 0 0 5px rgb(243, 243, 236);
   }
 
   to {
     text-shadow: 
-      0 0 10px rgb(243, 188, 8),
-      0 0 20px rgb(248, 114, 5),
-      0 0 30px rgb(247, 6, 6);
+      0 0 10px rgb(238, 142, 209),
+      0 0 20px rgb(241, 67, 198),
+      0 0 30px rgb(247, 6, 187);
   }
 }

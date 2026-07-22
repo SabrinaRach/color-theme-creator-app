@@ -9,9 +9,21 @@ function App() {
   function addColor(newColor) {
     setColors([newColor, ...colors]);
   }
+  function editColor(updatedColor) {
+    console.log(updatedColor);
+    const updatedColors = colors.map((color) => {
+      if (color.id === updatedColor.id) {
+        return updatedColor;
+      } else {
+        return color;
+      }
+    });
+    console.log(updatedColors);
+    setColors(updatedColors);
+  }
 
-  /* delete colorcard if the id of the color card matches the id passed to this function
-  = delete colorcard if the id of the color card is NOT kept in the filtered array */
+  /* delete color card if the id of the color card matches the id passed to this function
+  = delete color card if the id of the color card is NOT kept in the filtered array */
   function deleteColor({ id }) {
     const updatedColors = colors.filter((color) => {
       return color.id !== id;
@@ -36,7 +48,12 @@ function App() {
         <p className="add-colors-message">Add new colors!</p>
       ) : (
         colors.map((color) => (
-          <Color key={color.id} color={color} onDeleteColor={deleteColor} />
+          <Color
+            key={color.id}
+            color={color}
+            onDeleteColor={deleteColor}
+            onEditColor={editColor}
+          />
         ))
       )}
     </>
