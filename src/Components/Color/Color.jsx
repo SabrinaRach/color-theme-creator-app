@@ -14,8 +14,8 @@ export default function Color({ color, onDeleteColor }) {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   function handleShowConfirmation() {
-  setShowConfirmation(true);
-}
+    setShowConfirmation(true);
+  }
 
   return (
     <article
@@ -29,25 +29,27 @@ export default function Color({ color, onDeleteColor }) {
       <p className="role-text">{color.role}</p>
       <p className="contrast-text">contrast: {color.contrastText}</p>
 
-
-{showConfirmation === true ? (
-  <>
-  <p>Are you sure?</p> 
-  <button
-        onClick={() => onDeleteColor({ id: color.id })}
-        className="confirm-button"
-      >
-        Confirm
-      </button>
-  <button onClick={() => setShowConfirmation(false)} className="cancel-button">Cancel</button>
-   </>) : (
-   <button
-        onClick={handleShowConfirmation}
-        className="delete-button"
-      >
-        Delete
-      </button>)}
-
+      {showConfirmation === true ? (
+        <>
+          <p className="confirmation-message">Are you sure?</p>
+          <button
+            onClick={() => onDeleteColor({ id: color.id })}
+            className="confirm-button"
+          >
+            Confirm
+          </button>
+          <button
+            onClick={() => setShowConfirmation(false)}
+            className="cancel-button"
+          >
+            Cancel
+          </button>
+        </>
+      ) : (
+        <button onClick={handleShowConfirmation} className="delete-button">
+          Delete
+        </button>
+      )}
     </article>
   );
 }
