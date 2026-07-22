@@ -7,20 +7,17 @@ the color itself in the background color of the element
 the font in the respective contrastText color */
 
 export default function Color({ color }) {
-
-
   return (
-    <article className="colorcard" style={{
-  backgroundColor: color.hex,
-  color: color.contrastText,
-}} >
-<p>{color.hex}</p>
-<p>{color.role}</p>
-<p>contrast: {color.contrastText}</p>
-
-
+    <article
+      className="color-card"
+      style={{
+        backgroundColor: color.hex,
+        color: color.contrastText,
+      }}
+    >
+      <p className="hex-text">{color.hex}</p>
+      <p className="role-text">{color.role}</p>
+      <p className="contrast-text">contrast: {color.contrastText}</p>
     </article>
   );
 }
-
-
