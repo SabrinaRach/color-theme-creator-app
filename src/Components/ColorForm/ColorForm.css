@@ -3,6 +3,7 @@
 .color-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     width: 300px;
     margin: 15px;
@@ -11,4 +12,5 @@
 .add-color-button {
     padding: 2px;
     cursor: pointer;
+    border-radius: 5px; /* rounded corners */
 }

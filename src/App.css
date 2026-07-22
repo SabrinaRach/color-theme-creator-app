@@ -7,3 +7,27 @@ body {
   ); /* a neutral grey is supposed to be the best choice for a true-color representation */
   padding: 10px;
 }
+
+/* Animation für Text */
+.add-colors-message {
+  font-size: 25px;
+  display: block;
+  text-align: center;
+  padding: 2px 6px;
+  color: white;
+
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px rgb(243, 243, 236);
+  }
+
+  to {
+    text-shadow: 
+      0 0 10px rgb(243, 188, 8),
+      0 0 20px rgb(248, 114, 5),
+      0 0 30px rgb(247, 6, 6);
+  }
+}

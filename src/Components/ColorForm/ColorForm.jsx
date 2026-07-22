@@ -18,8 +18,10 @@ export default function ColorForm({ onAddColor }) {
     }; /* add unique id to colorFormData object */
     console.log(newColor);
     onAddColor(newColor);
-    setHex("#000000") /* sets it back to new state = default value for hex */
-    setContrastText("#ffffff") /* sets it back to new state = default value for contrast text */
+    setHex("#000000"); /* sets it back to new state = default value for hex */
+    setContrastText(
+      "#ffffff",
+    ); /* sets it back to new state = default value for contrast text */
     event.target.reset(); /* to empty the input fields */
   }
   return (
@@ -30,7 +32,7 @@ export default function ColorForm({ onAddColor }) {
         type="text"
         name="role"
         id="role"
-        defaultValue="the role of the color"
+        placeholder="the role of the color"
         required
       />
 
@@ -48,7 +50,7 @@ export default function ColorForm({ onAddColor }) {
         name="contrastText" */
         id="contrastText"
         value={contrastText}
-        onChange= {(event) => setContrastText(event.target.value)}
+        onChange={(event) => setContrastText(event.target.value)}
         required
       />
 
