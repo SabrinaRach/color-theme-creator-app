@@ -1,4 +1,9 @@
 body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background-color: rgb(
+    128,
+    128,
+    128
+  ); /* a neutral grey is supposed to be the best choice for a true-color representation */
   padding: 10px;
 }
