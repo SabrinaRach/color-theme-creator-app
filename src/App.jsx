@@ -29,13 +29,17 @@ function App() {
       {/* form to add new colors */}
       <ColorForm onAddColor={addColor} />
 
-      {/* for every color: create a Color component and add the matching color to this component 
-      add key to uniquely identifiy each color card*/}
-      {colors.map((color) => (
-        <Color key={color.id} color={color} onDeleteColor={deleteColor}/>
-      ))}
+      {/* If there are no colors left in the theme after deletion, display a message encouraging users to add new colors. */}
+      {/*  for every color: create a Color component and add the matching color to this component 
+      add key to uniquely identifiy each color card --> .map()*/}
+      {colors.length === 0 ? (
+        <p className="add-colors-message">Add new colors!</p>
+      ) : (
+        colors.map((color) => (
+          <Color key={color.id} color={color} onDeleteColor={deleteColor} />
+        ))
+      )}
     </>
   );
 }
-
 export default App;
