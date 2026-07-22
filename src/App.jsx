@@ -1,5 +1,6 @@
 import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
+import ColorForm from "./Components/ColorForm/ColorForm";
 import "./App.css";
 
 function App() {
