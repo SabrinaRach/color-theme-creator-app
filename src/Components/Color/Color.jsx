@@ -1,5 +1,6 @@
 import "./Color.css";
 import { useState } from "react";
+import ColorForm from "../ColorForm/ColorForm";
 
 /* Each color card displays: siehe dafür colors.js
 hex value of the color
@@ -12,12 +13,22 @@ export default function Color({ color, onDeleteColor }) {
    The state is located in Color because the confirmation is only needed
    for one card, not for the whole app. */
   const [showConfirmation, setShowConfirmation] = useState(false);
+  /* Introduce a state for the edit, default value = false because color card is not in edit mode */
+  const [showEdit, setShowEdit] = useState(false);
 
   function handleShowConfirmation() {
     setShowConfirmation(true);
   }
 
+  function handleShowEdit() {
+    setShowEdit(true);
+  }
+
   return (
+    <>
+    {showEdit ? (
+        <ColorForm color={color} /> 
+    ) : (
     <article
       className="color-card"
       style={{
@@ -46,10 +57,15 @@ export default function Color({ color, onDeleteColor }) {
           </button>
         </>
       ) : (
-        <button onClick={handleShowConfirmation} className="delete-button">
-          Delete
-        </button>
+        <>
+          <button onClick={handleShowConfirmation} className="delete-button">
+            Delete
+          </button>
+          <button onClick={handleShowEdit} className="edit-button">Edit</button>
+        </>
+          )}
+        </article>
       )}
-    </article>
+    </>
   );
 }

@@ -35,7 +35,8 @@
 
 .confirm-button,
 .delete-button,
-.cancel-button {
+.cancel-button,
+.edit-button {
   border-radius: 5px; /* rounded corners */
 }
 
