@@ -80,6 +80,13 @@ export default function ColorForm({
       <button className="add-color-button">
         {color ? "Save changes" : "Add color"}
       </button>
+
+{/* the cancel button should close the edit form without any changes */}
+      {color && (
+        <button type="button" className="cancel-button" onClick={onFinishEdit}>
+          Cancel
+        </button>
+      )}
     </form>
   );
 }

@@ -44,7 +44,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
         <ColorForm
           color={color}
           onEditColor={onEditColor}
-          onFinishEdit={handleFinishEdit}
+          onFinishEdit={handleFinishEdit} /* closes the edit mode */
         />
       ) : (
         <>

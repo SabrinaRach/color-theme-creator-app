@@ -25,15 +25,11 @@
 }
 
 .hex-text {
-font-weight: bold;
+  font-weight: bold;
 }
 
 .role-text {
-text-decoration: underline;
-}
-
-.contrast-text {
-/* no changes */
+  text-decoration: underline;
 }
 
 .confirmation-message {
