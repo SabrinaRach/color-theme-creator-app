@@ -24,6 +24,14 @@
   vertical-align: middle;
 }
 
+/* putting the color wheel in the center for mobile view*/
+@media (max-width: 600px) {
+  .color-card-headline::after {
+    display: block;
+    margin: 8px auto 0;
+  }
+}
+
 .hex-text {
   font-weight: bold;
 }
