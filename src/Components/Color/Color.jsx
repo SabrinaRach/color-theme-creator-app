@@ -8,7 +8,7 @@ the role of the color
 the color itself in the background color of the element
 the font in the respective contrastText color */
 
-export default function Color({ color, onDeleteColor }) {
+export default function Color({ color, onDeleteColor, onEditColor }) {
   /* The card that the user wants to delete shows a confirmation message.
    The state is located in Color because the confirmation is only needed
    for one card, not for the whole app. */
@@ -24,10 +24,18 @@ export default function Color({ color, onDeleteColor }) {
     setShowEdit(true);
   }
 
+  function handleFinishEdit() {
+  setShowEdit(false);
+}
+
+
+
   return (
     <>
     {showEdit ? (
-        <ColorForm color={color} /> 
+        <ColorForm color={color} 
+        onEditColor={onEditColor} 
+        onFinishEdit={handleFinishEdit}/> 
     ) : (
     <article
       className="color-card"
