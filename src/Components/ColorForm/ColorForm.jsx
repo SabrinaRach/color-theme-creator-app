@@ -1,28 +1,46 @@
-import "./ColorForm.css"
+import "./ColorForm.css";
 import ColorInput from "../ColorInput/ColorInput";
+import { nanoid } from "nanoid"; /* to give every color an unique id */
 
-export default function ColorForm() {
+export default function ColorForm({ onAddColor }) {
+  /* when user submits the form: */
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const colorFormData = Object.fromEntries(formData);
+    const newColor = {
+      id: nanoid(),
+      ...colorFormData,
+    }; /* add unique id to colorFormData object */
+    console.log(newColor);
+    onAddColor(newColor);
+    event.target.reset(); /* leert das Feld wieder ---> does not work! */
+  }
   return (
     /* Creating a form to submit colors to a new theme */
-    <form className="color-form">
+    <form onSubmit={handleSubmit} className="color-form">
       <label htmlFor="role">Role</label>
       <input
         type="text"
         name="role"
         id="role"
-        placeholder="the role of the color"
+        defaultValue="the role of the color"
         required
       />
 
       <label htmlFor="hex">Hex</label>
-      <input type="text" name="hex" id="name" placeholder="#000000" required />
+      <ColorInput
+        /* type="text" name="hex"  */ id="hex"
+        defaultValue="#000000"
+        required
+      />
 
       <label htmlFor="contrastText">Contrast Text</label>
-      <input
-        type="text"
-        name="contrastText"
+      <ColorInput
+        /* type="text"
+        name="contrastText" */
         id="contrastText"
-        placeholder="#ffffff"
+        defaultValue="#ffffff"
         required
       />
 
