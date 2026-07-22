@@ -25,18 +25,10 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
   }
 
   function handleFinishEdit() {
-  setShowEdit(false);
-}
-
-
+    setShowEdit(false);
+  }
 
   return (
-    <>
-    {showEdit ? (
-        <ColorForm color={color} 
-        onEditColor={onEditColor} 
-        onFinishEdit={handleFinishEdit}/> 
-    ) : (
     <article
       className="color-card"
       style={{
@@ -48,32 +40,45 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
       <p className="role-text">{color.role}</p>
       <p className="contrast-text">contrast: {color.contrastText}</p>
 
-      {showConfirmation === true ? (
-        <>
-          <p className="confirmation-message">Are you sure?</p>
-          <button
-            onClick={() => onDeleteColor({ id: color.id })}
-            className="confirm-button"
-          >
-            Confirm
-          </button>
-          <button
-            onClick={() => setShowConfirmation(false)}
-            className="cancel-button"
-          >
-            Cancel
-          </button>
-        </>
+      {showEdit ? (
+        <ColorForm
+          color={color}
+          onEditColor={onEditColor}
+          onFinishEdit={handleFinishEdit}
+        />
       ) : (
         <>
-          <button onClick={handleShowConfirmation} className="delete-button">
-            Delete
-          </button>
-          <button onClick={handleShowEdit} className="edit-button">Edit</button>
-        </>
+          {showConfirmation === true ? (
+            <>
+              <p className="confirmation-message">Are you sure?</p>
+              <button
+                onClick={() => onDeleteColor({ id: color.id })}
+                className="confirm-button"
+              >
+                Confirm
+              </button>
+              <button
+                onClick={() => setShowConfirmation(false)}
+                className="cancel-button"
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={handleShowConfirmation}
+                className="delete-button"
+              >
+                Delete
+              </button>
+              <button onClick={handleShowEdit} className="edit-button">
+                Edit
+              </button>
+            </>
           )}
-        </article>
+        </>
       )}
-    </>
+    </article>
   );
 }
