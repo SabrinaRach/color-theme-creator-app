@@ -66,6 +66,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
             </>
           ) : (
             <>
+            <div className="delete-edit-button-container"> 
               <button
                 onClick={handleShowConfirmation}
                 className="delete-button"
@@ -74,7 +75,8 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
               </button>
               <button onClick={handleShowEdit} className="edit-button">
                 Edit
-              </button>
+              </button></div>
+             
             </>
           )}
         </>
