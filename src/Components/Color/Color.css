@@ -3,8 +3,9 @@
   padding: 5px;
   border-radius: 5px; /* rounded corners */
   border: solid 1px rgb(87, 87, 87);
-  height: 300px;
-  width: 250px;
+  /* height: 300px; width: 250px; with a fixed height and width the form for editing would spill over the borders*/
+  min-height: 300px;
+  min-width: 250px;
 
   /* Inhalt der color card am unteren Ende */
   display: flex;
