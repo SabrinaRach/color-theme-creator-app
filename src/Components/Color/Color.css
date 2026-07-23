@@ -2,6 +2,14 @@
   margin: 10px;
   padding: 5px;
   border-radius: 5px; /* rounded corners */
+  border: solid 1px rgb(87, 87, 87);
+  height: 300px;
+  width: 250px;
+
+  /* Inhalt der color card am unteren Ende */
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .color-card-headline {
@@ -54,6 +62,12 @@
 .cancel-button,
 .edit-button {
   border-radius: 5px; /* rounded corners */
+}
+
+.delete-edit-button-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px; /* Abstand zwischen den Buttons */
 }
 
 input {
