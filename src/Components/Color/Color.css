@@ -19,6 +19,9 @@
   color: white;
 }
 
+
+
+
 /* adding a color wheel after the headline */
 /* <a href="https://www.flaticon.com/free-icons/color-wheel" title="color wheel icons">Color wheel icons created by Color creator - Flaticon</a> */
 .color-card-headline::after {

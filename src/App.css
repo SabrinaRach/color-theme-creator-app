@@ -8,7 +8,29 @@ body {
   padding: 10px;
 }
 
-/* Animation für Text */
+.card-container {
+  display: flex;
+}
+
+/* ---- Responsive Design: Desktop und Tablet ---- */
+@media (min-width: 1200px) {
+  .card-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 900px) {
+  .card-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Animation für Text when there is no card displayed */
 .add-colors-message {
   font-size: 25px;
   display: block;
@@ -25,7 +47,7 @@ body {
   }
 
   to {
-    text-shadow: 
+    text-shadow:
       0 0 10px rgb(238, 142, 209),
       0 0 20px rgb(241, 67, 198),
       0 0 30px rgb(247, 6, 187);
