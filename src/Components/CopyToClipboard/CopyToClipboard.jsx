@@ -29,7 +29,7 @@ export default function CopyToClipboard({ text }) {
 
   return (
     <>
-      <button onClick={copyText} className="copy-button"></button>
+      <button onClick={copyText} className="copy-button">Copy</button>
       {copied && <p>Copied successfully!</p>}{" "}
       {/* means: if copied is true show the message */}
     </>

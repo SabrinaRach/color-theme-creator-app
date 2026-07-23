@@ -41,8 +41,19 @@
   }
 }
 
+.hex-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .hex-text {
   font-weight: bold;
+  margin: 0;
+}
+
+.copy-button {
+  cursor: pointer;
 }
 
 .role-text {
@@ -61,8 +72,19 @@
 .confirm-button,
 .delete-button,
 .cancel-button,
-.edit-button {
+.edit-button,
+.copy-button {
   border-radius: 5px; /* rounded corners */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.confirm-button:hover,
+.delete-button:hover,
+.cancel-button:hover,
+.edit-button:hover,
+.copy-button:hover {
+  transform: scale(1.05);
 }
 
 .delete-edit-button-container {

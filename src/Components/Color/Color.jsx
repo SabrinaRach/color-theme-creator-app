@@ -37,11 +37,15 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
         color: color.contrastText,
       }}
     >
-      <p className="hex-text">{color.hex}</p>
+      <div className="hex-container">
+        <p className="hex-text">{color.hex}</p>
+      <CopyToClipboard text={color.hex} />
+      </div>
+      
       <p className="role-text">{color.role}</p>
       <p className="contrast-text">contrast: {color.contrastText}</p>
       
-      <CopyToClipboard text={color.hex} />
+      
 
       {showEdit ? (
         <ColorForm
