@@ -8,6 +8,7 @@ export default function ColorForm({
   onEditColor,
   onFinishEdit,
   color,
+  ariaLabel
 }) {
   const [hex, setHex] = useState(
     color ? color.hex : "#000000",
@@ -45,12 +46,13 @@ export default function ColorForm({
   }
   return (
     /* Creating a form to submit colors to a new theme */
-    <form onSubmit={handleSubmit} className="color-form">
+    <form onSubmit={handleSubmit} className="color-form" aria-label={ariaLabel}>
       <label htmlFor="role">Role</label>
       <input
         type="text"
         name="role"
         id="role"
+        aria-label="Color role"
         value={role}
         placeholder="the role of the color"
         onChange={(event) => setRole(event.target.value)}
@@ -62,6 +64,7 @@ export default function ColorForm({
         type="text"
         name="hex"
         id="hex"
+        aria-label="Select hexadecimal color value"
         value={hex}
         onChange={(event) => setHex(event.target.value)}
         required
@@ -72,6 +75,7 @@ export default function ColorForm({
         type="text"
         name="contrastText"
         id="contrastText"
+        aria-label="Select contrast text color value"
         value={contrastText}
         onChange={(event) => setContrastText(event.target.value)}
         required
@@ -83,7 +87,7 @@ export default function ColorForm({
 
 {/* the cancel button should close the edit form without any changes */}
       {color && (
-        <button type="button" className="cancel-button" onClick={onFinishEdit}>
+        <button type="button" className="cancel-button" aria-label="Cancel editing color" onClick={onFinishEdit}>
           Cancel
         </button>
       )}

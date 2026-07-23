@@ -32,6 +32,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
   return (
     <article
       className="color-card"
+      aria-label={`Color ${color.role}`}
       style={{
         backgroundColor: color.hex,
         color: color.contrastText,
@@ -39,7 +40,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
     >
       <div className="hex-container">
         <p className="hex-text">{color.hex}</p>
-      <CopyToClipboard text={color.hex} />
+      <CopyToClipboard text={color.hex} aria-label={`Copy ${color.hex} to clipboard`}/>
       </div>
       
       <p className="role-text">{color.role}</p>
@@ -57,23 +58,24 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
         <>
           {showConfirmation === true ? (
             <>
-              <p className="confirmation-message">Are you sure?</p>
+              <p className="confirmation-message" role="alert">Are you sure?</p>
               <button
                 onClick={() => onDeleteColor({ id: color.id })}
-                className="confirm-button"
+                className="confirm-button" aria-label={`Delete ${color.role} color`}
               >
                 Confirm
               </button>
               <button
                 onClick={() => setShowConfirmation(false)}
-                className="cancel-button"
+                className="cancel-button" aria-label="Cancel deleting color"
               >
                 Cancel
               </button>
             </>
           ) : (
             <>
-            <div className="delete-edit-button-container"> 
+            <div className="delete-edit-button-container" role="group"
+  aria-label="Color actions"> 
               <button
                 onClick={handleShowConfirmation}
                 className="delete-button"
