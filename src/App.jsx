@@ -37,6 +37,14 @@ function App() {
     ); /* setColors changes the state. Only App owns the state, so only App can update i */
   }
 
+  /* to scroll back to the top of the page */
+  function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
   return (
     <>
       <h1 className="color-card-headline">Color Theme Creator</h1>
@@ -61,6 +69,11 @@ function App() {
         ))}
       </div>
       )}
+      <div className="scroll-button-container">
+       <button onClick={scrollToTop} className="scroll-to-top-button">
+        ↑ Top
+      </button>
+      </div>
     </>
   );
   }
