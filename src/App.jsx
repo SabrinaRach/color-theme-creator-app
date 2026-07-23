@@ -2,7 +2,6 @@ import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
 import ColorForm from "./Components/ColorForm/ColorForm";
 import "./App.css";
-import { useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
 
 function App() {
@@ -38,6 +37,14 @@ function App() {
     ); /* setColors changes the state. Only App owns the state, so only App can update i */
   }
 
+  /* to scroll back to the top of the page */
+  function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
   return (
     <>
       <h1 className="color-card-headline">Color Theme Creator</h1>
@@ -51,16 +58,23 @@ function App() {
       {colors.length === 0 ? (
         <p className="add-colors-message">Add new colors!</p>
       ) : (
-        colors.map((color) => (
+        <div className="card-container">
+        {colors.map((color) => (
           <Color
             key={color.id}
             color={color}
             onDeleteColor={deleteColor}
             onEditColor={editColor}
           />
-        ))
+        ))}
+      </div>
       )}
+      <div className="scroll-button-container">
+       <button onClick={scrollToTop} className="scroll-to-top-button">
+        ↑ Top
+      </button>
+      </div>
     </>
   );
-}
+  }
 export default App;

@@ -1,6 +1,7 @@
 import "./Color.css";
 import { useState } from "react";
 import ColorForm from "../ColorForm/ColorForm";
+import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
 
 /* Each color card displays: siehe dafür colors.js
 hex value of the color
@@ -36,9 +37,15 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
         color: color.contrastText,
       }}
     >
-      <p className="hex-text">{color.hex}</p>
+      <div className="hex-container">
+        <p className="hex-text">{color.hex}</p>
+      <CopyToClipboard text={color.hex} />
+      </div>
+      
       <p className="role-text">{color.role}</p>
       <p className="contrast-text">contrast: {color.contrastText}</p>
+      
+      
 
       {showEdit ? (
         <ColorForm

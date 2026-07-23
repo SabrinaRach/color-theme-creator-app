@@ -5,7 +5,7 @@
   border: solid 1px rgb(87, 87, 87);
   /* height: 300px; width: 250px; with a fixed height and width the form for editing would spill over the borders*/
   min-height: 300px;
-  min-width: 250px;
+  min-width: 300px;
 
   /* Inhalt der color card am unteren Ende */
   display: flex;
@@ -14,10 +14,13 @@
 }
 
 .color-card-headline {
+  display: flex;
+  justify-content: center;
   padding: 2px 6px;
   /* background: black; */
   color: white;
 }
+
 
 /* adding a color wheel after the headline */
 /* <a href="https://www.flaticon.com/free-icons/color-wheel" title="color wheel icons">Color wheel icons created by Color creator - Flaticon</a> */
@@ -33,16 +36,30 @@
   vertical-align: middle;
 }
 
-/* putting the color wheel in the center for mobile view*/
+/* leaving the color wheel next to the headline for mobile view = using a smaller font-size*/
 @media (max-width: 600px) {
   .color-card-headline::after {
     display: block;
-    margin: 8px auto 0;
+    margin: auto 0;
   }
+  .color-card-headline {
+    font-size: 30px;
+  }
+}
+
+.hex-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .hex-text {
   font-weight: bold;
+  margin: 0;
+}
+
+.copy-button {
+  cursor: pointer;
 }
 
 .role-text {
@@ -61,8 +78,23 @@
 .confirm-button,
 .delete-button,
 .cancel-button,
-.edit-button {
+.edit-button,
+.copy-button {
   border-radius: 5px; /* rounded corners */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.confirm-button:hover,
+.delete-button:hover,
+.cancel-button:hover,
+.edit-button:hover,
+.copy-button:hover {
+  transform: scale(1.05);
+}
+
+.confirm-button {
+  margin-bottom: 5px;
 }
 
 .delete-edit-button-container {

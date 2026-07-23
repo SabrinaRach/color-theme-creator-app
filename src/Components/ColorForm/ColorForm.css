@@ -6,11 +6,16 @@
     justify-content: center;
     gap: 5px;
     width: 300px;
-    margin: 15px;
+    margin: 15px auto;
 }
 
 .add-color-button {
     padding: 2px;
     cursor: pointer;
     border-radius: 5px; /* rounded corners */
+    transition: transform 0.2s ease;
+}
+
+.add-color-button:hover {
+  transform: scale(1.05);
 }
