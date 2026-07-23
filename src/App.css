@@ -57,7 +57,7 @@ body {
   }
 }
 
-/* Animation für Text when there is no card displayed */
+/* animation for when there is no card displayed */
 .add-colors-message {
   font-size: 25px;
   display: block;
@@ -78,5 +78,12 @@ body {
       0 0 10px rgb(238, 142, 209),
       0 0 20px rgb(241, 67, 198),
       0 0 30px rgb(247, 6, 187);
+  }
+}
+
+/*Accessibility: no animation for text when no card is displayed */
+@media (prefers-reduced-motion: reduce) {
+  .add-colors-message {
+    animation: none;
   }
 }

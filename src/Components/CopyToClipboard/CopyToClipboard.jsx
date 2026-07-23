@@ -29,9 +29,9 @@ export default function CopyToClipboard({ text }) {
 
   return (
     <>
-      <button onClick={copyText} className="copy-button">Copy</button>
-      {copied && <p>Copied successfully!</p>}{" "}
-      {/* means: if copied is true show the message */}
+      <button onClick={copyText} className="copy-button" aria-label={`Copy ${text} to clipboard`}>Copy</button>
+      {copied && <p role="status">Copied successfully!</p>}{" "}
+      {/* means: if copied is true show the message; role="status" is for screenreaders to inform users when the content changes> */}
     </>
   );
 }

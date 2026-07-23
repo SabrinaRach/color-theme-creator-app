@@ -106,3 +106,25 @@
 input {
   border-radius: 5px; /* rounded corners */
 }
+
+/* Accessibility: adds a visible focus indicator for keyboard users,
+   helping them identify the currently focused button. */
+.confirm-button:focus-visible,
+.delete-button:focus-visible,
+.cancel-button:focus-visible,
+.edit-button:focus-visible,
+.copy-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px; /* adds some space between the button and the focus outline, making it easier to see. */
+}
+
+/* Accessibility: no animation */
+@media (prefers-reduced-motion: reduce) {
+  .confirm-button,
+  .delete-button,
+  .cancel-button,
+  .edit-button,
+  .copy-button {
+    transition: none;
+  }
+}
