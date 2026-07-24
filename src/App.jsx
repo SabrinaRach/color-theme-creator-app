@@ -6,6 +6,7 @@ import useLocalStorageState from "use-local-storage-state";
 import { useState } from "react";
 import ThemeSelector from "./Components/ThemeSelector/ThemeSelector";
 import { initialThemes } from "./lib/themes";
+import ThemeForm from "./Components/ThemeForm/ThemeForm";
 
 function App() {
   /* choose between themes */
@@ -30,6 +31,11 @@ function App() {
       color.id,
     ); /* ? bedeutet: nur ausführen, wenn activeTheme existiert */
   });
+
+  /* --- add new Theme --- */
+  function addTheme(newTheme) {
+    setThemes([...themes, newTheme]);
+  }
 
   /* --- Contrast Checker --- */
   async function fetchContrast(fcolor, bcolor) {
@@ -134,6 +140,7 @@ function App() {
         themes={themes}
         onThemeChange={(event) => setActiveThemeId(event.target.value)}
       />
+      <ThemeForm onAddTheme={addTheme} />
 
       {/* form to add new colors */}
       <ColorForm onAddColor={addColor} ariaLabel="Add new color" />

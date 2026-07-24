@@ -46,6 +46,23 @@
   }
 }
 
+.theme-name,
+.choose-a-theme {
+  font-weight: bold;
+}
+
+.theme-dropdown {
+  border-radius: 5px;
+}
+
+.add-theme-button {
+  margin-left: 5px;
+}
+
+.input-theme-name {
+  margin-top: 5px;
+}
+
 .hex-container {
   display: flex;
   align-items: center;
@@ -99,7 +116,8 @@
 .delete-button,
 .cancel-button,
 .edit-button,
-.copy-button {
+.copy-button,
+.add-theme-button {
   border-radius: 5px; /* rounded corners */
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -109,7 +127,8 @@
 .delete-button:hover,
 .cancel-button:hover,
 .edit-button:hover,
-.copy-button:hover {
+.copy-button:hover,
+.add-theme-button {
   transform: scale(1.05);
 }
 
