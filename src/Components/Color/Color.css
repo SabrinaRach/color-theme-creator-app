@@ -5,7 +5,7 @@
   border: solid 1px rgb(87, 87, 87);
   /* height: 300px; width: 250px; with a fixed height and width the form for editing would spill over the borders*/
   min-height: 300px;
-  min-width: 300px;
+  min-width: 350px;
 
   /* Inhalt der color card am unteren Ende */
   display: flex;
@@ -20,7 +20,6 @@
   /* background: black; */
   color: white;
 }
-
 
 /* adding a color wheel after the headline */
 /* <a href="https://www.flaticon.com/free-icons/color-wheel" title="color wheel icons">Color wheel icons created by Color creator - Flaticon</a> */
@@ -51,6 +50,27 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.contrast-checker {
+  border: solid 1px;
+  border-radius: 5px;
+  font-size: small;
+  background-color: white;
+  color: black;
+  padding: 1px;
+  margin-bottom: 4px;
+}
+
+/* color for contrast result text */
+.contrast-pass {
+  color: rgb(15, 196, 15);
+  font-weight: bold;
+}
+
+.contrast-fail {
+  color: rgb(255, 1, 1);
+  font-weight: bold;
 }
 
 .hex-text {
