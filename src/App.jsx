@@ -52,7 +52,20 @@ function App() {
       AA: contrast.AA,
     };
 
-    setColors([colorWithContrast, ...colors]);
+    setColors((currentColors) => [colorWithContrast, ...currentColors]);
+
+    /* color zu Theme hinzufügen */
+    const updatedThemes = themes.map((theme) => {
+      if (theme.id === activeThemeId) {
+        return {
+          ...theme,
+          colors: [...theme.colors, colorWithContrast.id],
+        };
+      } else {
+        return theme;
+      }
+    });
+    setThemes(updatedThemes);
   }
 
   /* --- Edit a color (with contrast checker --- */
@@ -87,9 +100,22 @@ function App() {
       return color.id !== id;
     });
 
+    /* map to change an object in array, filter to delete from an array */
+    const updatedThemes = themes.map((theme) => {
+      if (theme.id === activeThemeId) {
+        return {
+          ...theme,
+          colors: theme.colors.filter((colorId) => colorId !== id),
+        };
+      } else {
+        return theme;
+      }
+    });
+
     setColors(
       updatedColors,
     ); /* setColors changes the state. Only App owns the state, so only App can update i */
+    setThemes(updatedThemes);
   }
 
   /* to scroll back to the top of the page */
