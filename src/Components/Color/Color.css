@@ -53,6 +53,15 @@
   gap: 10px;
 }
 
+.contrast-checker {
+  border: solid 1px;
+  border-radius: 5px;
+  font-size: small;
+  background-color: white;
+  color: black;
+  padding: 1px;
+}
+
 .hex-text {
   font-weight: bold;
   margin: 0;
