@@ -37,6 +37,27 @@ function App() {
     setThemes([...themes, newTheme]);
   }
 
+
+  /* --- delete Theme --- */
+  function deleteTheme(id) {
+  // not delete default theme
+  if (id === "t1") {
+    return;
+  }
+
+  // delete theme
+  const updatedThemes = themes.filter((theme) => {
+    return theme.id !== id;
+  });
+
+  setThemes(updatedThemes);
+
+  // back to default theme if the deleted theme was active
+  if (activeThemeId === id) {
+    setActiveThemeId("t1");
+  }
+}
+
   /* --- Contrast Checker --- */
   async function fetchContrast(fcolor, bcolor) {
     const response = await fetch(
@@ -138,7 +159,9 @@ function App() {
 
       <ThemeSelector
         themes={themes}
+        activeThemeId={activeThemeId}
         onThemeChange={(event) => setActiveThemeId(event.target.value)}
+        onDeleteTheme={deleteTheme}
       />
       <ThemeForm onAddTheme={addTheme} />
 

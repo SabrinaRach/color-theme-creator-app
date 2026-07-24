@@ -55,7 +55,8 @@
   border-radius: 5px;
 }
 
-.add-theme-button {
+.add-theme-button,
+.delete-theme-button {
   margin-left: 5px;
 }
 
@@ -117,7 +118,8 @@
 .cancel-button,
 .edit-button,
 .copy-button,
-.add-theme-button {
+.add-theme-button,
+.delete-theme-button {
   border-radius: 5px; /* rounded corners */
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -128,7 +130,8 @@
 .cancel-button:hover,
 .edit-button:hover,
 .copy-button:hover,
-.add-theme-button {
+.add-theme-button:hover,
+.delete-theme-button:hover {
   transform: scale(1.05);
 }
 
