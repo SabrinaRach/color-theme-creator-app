@@ -62,6 +62,17 @@
   margin-bottom: 4px;
 }
 
+/* color for contrast result text */
+.contrast-pass {
+  color: rgb(15, 196, 15);
+  font-weight: bold;
+}
+
+.contrast-fail {
+  color: rgb(255, 1, 1);
+  font-weight: bold;
+}
+
 .hex-text {
   font-weight: bold;
   margin: 0;

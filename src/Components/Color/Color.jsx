@@ -52,8 +52,12 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
       {/* Use the AA field as the overall pass/fail indicator and ratio to show the numeric contrast value */}
       <p className="contrast-checker">
         Overall Contrast Score:{" "}
-        {color.AA === "pass" ? "good" : "needs adjustment"} (Ratio:{" "}
-        {color.ratio}){" "}
+        <span
+          className={color.AA === "pass" ? "contrast-pass" : "contrast-fail"}
+        >
+          {color.AA === "pass" ? "good" : "needs adjustment"}
+        </span>{" "}
+        (Ratio: {color.ratio}){" "}
       </p>
 
       {showEdit ? (
