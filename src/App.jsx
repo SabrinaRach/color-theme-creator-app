@@ -37,6 +37,24 @@ function App() {
     setThemes([...themes, newTheme]);
   }
 
+  /* --- edit Theme --- */
+function editTheme(updatedTheme) {
+  // not edit default theme
+  if (updatedTheme.id === "t1") {
+    return;
+  }
+
+  const updatedThemes = themes.map((theme) => {
+    if (theme.id === updatedTheme.id) {
+      return updatedTheme;
+    } else {
+      return theme;
+    }
+  });
+
+  setThemes(updatedThemes);
+}
+
 
   /* --- delete Theme --- */
   function deleteTheme(id) {
@@ -162,6 +180,7 @@ function App() {
         activeThemeId={activeThemeId}
         onThemeChange={(event) => setActiveThemeId(event.target.value)}
         onDeleteTheme={deleteTheme}
+        onEditTheme={editTheme}
       />
       <ThemeForm onAddTheme={addTheme} />
 

@@ -119,7 +119,9 @@
 .edit-button,
 .copy-button,
 .add-theme-button,
-.delete-theme-button {
+.delete-theme-button,
+.save-new-theme-name-button,
+.edit-theme-button {
   border-radius: 5px; /* rounded corners */
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -131,7 +133,9 @@
 .edit-button:hover,
 .copy-button:hover,
 .add-theme-button:hover,
-.delete-theme-button:hover {
+.delete-theme-button:hover,
+.save-new-theme-name-button:hover,
+.edit-theme-button:hover {
   transform: scale(1.05);
 }
 
