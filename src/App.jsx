@@ -16,7 +16,9 @@ function App() {
       `https://webaim.org/resources/contrastchecker/?fcolor=${encodeURIComponent(fcolor)}&bcolor=${encodeURIComponent(bcolor)}&api=`,
     );
 
-    return response.json();
+    const data = await response.json();
+    console.log ("contrast response: ", data);
+    return data;
   }
 
   /* --- Add a color (with contrast checker) --- */

@@ -40,13 +40,21 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
     >
       <div className="hex-container">
         <p className="hex-text">{color.hex}</p>
-      <CopyToClipboard text={color.hex} aria-label={`Copy ${color.hex} to clipboard`}/>
+        <CopyToClipboard
+          text={color.hex}
+          aria-label={`Copy ${color.hex} to clipboard`}
+        />
       </div>
-      
+
       <p className="role-text">{color.role}</p>
       <p className="contrast-text">contrast: {color.contrastText}</p>
-      
-      
+
+      {/* Use the AA field as the overall pass/fail indicator and ratio to show the numeric contrast value */}
+      <p className="contrast-checker">
+        Overall Contrast Score:{" "}
+        {color.AA === "pass" ? "good" : "needs adjustment"} (Ratio:{" "}
+        {color.ratio}){" "}
+      </p>
 
       {showEdit ? (
         <ColorForm
@@ -58,34 +66,41 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
         <>
           {showConfirmation === true ? (
             <>
-              <p className="confirmation-message" role="alert">Are you sure?</p>
+              <p className="confirmation-message" role="alert">
+                Are you sure?
+              </p>
               <button
                 onClick={() => onDeleteColor({ id: color.id })}
-                className="confirm-button" aria-label={`Delete ${color.role} color`}
+                className="confirm-button"
+                aria-label={`Delete ${color.role} color`}
               >
                 Confirm
               </button>
               <button
                 onClick={() => setShowConfirmation(false)}
-                className="cancel-button" aria-label="Cancel deleting color"
+                className="cancel-button"
+                aria-label="Cancel deleting color"
               >
                 Cancel
               </button>
             </>
           ) : (
             <>
-            <div className="delete-edit-button-container" role="group"
-  aria-label="Color actions"> 
-              <button
-                onClick={handleShowConfirmation}
-                className="delete-button"
+              <div
+                className="delete-edit-button-container"
+                role="group"
+                aria-label="Color actions"
               >
-                Delete
-              </button>
-              <button onClick={handleShowEdit} className="edit-button">
-                Edit
-              </button></div>
-             
+                <button
+                  onClick={handleShowConfirmation}
+                  className="delete-button"
+                >
+                  Delete
+                </button>
+                <button onClick={handleShowEdit} className="edit-button">
+                  Edit
+                </button>
+              </div>
             </>
           )}
         </>
