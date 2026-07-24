@@ -4,16 +4,31 @@ import ColorForm from "./Components/ColorForm/ColorForm";
 import "./App.css";
 import useLocalStorageState from "use-local-storage-state";
 import { useState } from "react";
-
-const [themes, setThemes] = useLocalStorageState("themes", {
-  defaultValue: initialThemes,
-});
-const [activeThemeId, setActiveThemeId] = useState("t1"); /* shows the default theme */
+import ThemeSelector from "./Components/ThemeSelector/ThemeSelector";
+import { initialThemes } from "./lib/themes";
 
 function App() {
+  /* choose between themes */
+  const [themes, setThemes] = useLocalStorageState("themes", {
+    defaultValue: initialThemes,
+  });
+  const [activeThemeId, setActiveThemeId] =
+    useState("t1"); /* shows the default theme */
+
   /* switch useState for useLocalStorageState */
   const [colors, setColors] = useLocalStorageState("colors", {
     defaultValue: initialColors,
+  });
+
+  /* find the active theme */
+  const activeTheme = themes.find((theme) => {
+    return theme.id === activeThemeId;
+  });
+
+  const activeThemeColors = colors.filter((color) => {
+    return activeTheme?.colors.includes(
+      color.id,
+    ); /* ? bedeutet: nur ausführen, wenn activeTheme existiert */
   });
 
   /* --- Contrast Checker --- */
@@ -89,17 +104,22 @@ function App() {
     <>
       <h1 className="color-card-headline">Color Theme Creator</h1>
 
+      <ThemeSelector
+        themes={themes}
+        onThemeChange={(event) => setActiveThemeId(event.target.value)}
+      />
+
       {/* form to add new colors */}
       <ColorForm onAddColor={addColor} ariaLabel="Add new color" />
 
       {/* If there are no colors left in the theme after deletion, display a message encouraging users to add new colors. */}
       {/*  for every color: create a Color component and add the matching color to this component 
       add key to uniquely identifiy each color card --> .map()*/}
-      {colors.length === 0 ? (
+      {activeThemeColors.length === 0 ? (
         <p className="add-colors-message">Add new colors!</p>
       ) : (
         <div className="card-container">
-          {colors.map((color) => (
+          {activeThemeColors.map((color) => (
             <Color
               key={color.id}
               color={color}
