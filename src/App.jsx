@@ -3,6 +3,12 @@ import Color from "./Components/Color/Color";
 import ColorForm from "./Components/ColorForm/ColorForm";
 import "./App.css";
 import useLocalStorageState from "use-local-storage-state";
+import { useState } from "react";
+
+const [themes, setThemes] = useLocalStorageState("themes", {
+  defaultValue: initialThemes,
+});
+const [activeThemeId, setActiveThemeId] = useState("t1"); /* shows the default theme */
 
 function App() {
   /* switch useState for useLocalStorageState */
@@ -17,7 +23,7 @@ function App() {
     );
 
     const data = await response.json();
-    console.log ("contrast response: ", data);
+    console.log("contrast response: ", data);
     return data;
   }
 
