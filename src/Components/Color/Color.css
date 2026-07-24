@@ -43,6 +43,7 @@
   }
   .color-card-headline {
     font-size: 30px;
+    margin-bottom: 15px;
   }
 }
 
@@ -51,12 +52,22 @@
   font-weight: bold;
 }
 
+.new-theme-name-input-field {
+  margin-top: 5px;
+}
+
+.save-new-theme-name-button {
+  margin-left: 5px;
+}
+
 .theme-dropdown {
   border-radius: 5px;
 }
 
 .add-theme-button,
-.delete-theme-button {
+.delete-theme-button,
+.edit-theme-button,
+.cancel-renaming-theme-button {
   margin-left: 5px;
 }
 
@@ -121,7 +132,8 @@
 .add-theme-button,
 .delete-theme-button,
 .save-new-theme-name-button,
-.edit-theme-button {
+.edit-theme-button,
+.cancel-renaming-theme-button {
   border-radius: 5px; /* rounded corners */
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -135,7 +147,8 @@
 .add-theme-button:hover,
 .delete-theme-button:hover,
 .save-new-theme-name-button:hover,
-.edit-theme-button:hover {
+.edit-theme-button:hover,
+.cancel-renaming-theme-button:hover {
   transform: scale(1.05);
 }
 

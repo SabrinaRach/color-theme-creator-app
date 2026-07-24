@@ -22,3 +22,10 @@
 .add-color-button:hover {
   transform: scale(1.05);
 }
+
+/* title in form */
+.role,
+.hex,
+.contrast-text {
+  font-weight: bold;
+}

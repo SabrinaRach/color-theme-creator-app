@@ -21,7 +21,7 @@ function handleSubmit(event) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="theme-name" className="theme-name">Theme name: </label>
+      <label htmlFor="theme-name" className="theme-name">Create theme: </label>
 
       <input className="input-theme-name"
         id="theme-name"

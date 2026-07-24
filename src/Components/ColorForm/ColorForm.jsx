@@ -47,7 +47,7 @@ export default function ColorForm({
   return (
     /* Creating a form to submit colors to a new theme */
     <form onSubmit={handleSubmit} className="color-form" aria-label={ariaLabel}>
-      <label htmlFor="role">Role</label>
+      <label className="role" htmlFor="role">Role</label>
       <input
         type="text"
         name="role"
@@ -59,7 +59,7 @@ export default function ColorForm({
         required
       />
 
-      <label htmlFor="hex">Hex</label>
+      <label className="hex" htmlFor="hex">Hex</label>
       <ColorInput
         type="text"
         name="hex"
@@ -70,7 +70,7 @@ export default function ColorForm({
         required
       />
 
-      <label htmlFor="contrastText">Contrast Text</label>
+      <label className="contrast-text" htmlFor="contrastText">Contrast Text</label>
       <ColorInput
         type="text"
         name="contrastText"

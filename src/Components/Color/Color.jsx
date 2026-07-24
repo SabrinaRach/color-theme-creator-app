@@ -2,6 +2,7 @@ import "./Color.css";
 import { useState } from "react";
 import ColorForm from "../ColorForm/ColorForm";
 import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
+import { Pencil, Trash2 } from "lucide-react"; /* for icon in edit and delete button */
 
 /* Each color card displays: siehe dafür colors.js
 hex value of the color
@@ -99,10 +100,10 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
                   onClick={handleShowConfirmation}
                   className="delete-button"
                 >
-                  Delete
+                  <Trash2 size={20} />
                 </button>
                 <button onClick={handleShowEdit} className="edit-button">
-                  Edit
+                  <Pencil size={20} />
                 </button>
               </div>
             </>
