@@ -16,7 +16,7 @@ export default function ThemeSelector({
 
   return (
     /* creating a dropdown menu, using map() to create an <option> element for each theme */
-    <>
+    <div className="theme-selector-container">
       <label htmlFor="theme-select" className="choose-a-theme">
         Themes:{" "}
       </label>
@@ -57,7 +57,7 @@ export default function ThemeSelector({
 
       {/* edit form after clicking the edit buttton */}
       {isEditing && (
-        <>
+        <div>
           <input
             className="new-theme-name-input-field"
             value={newName}
@@ -98,8 +98,8 @@ export default function ThemeSelector({
           >
             Cancel
           </button>
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 }

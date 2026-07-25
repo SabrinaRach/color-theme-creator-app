@@ -175,6 +175,8 @@ function editTheme(updatedTheme) {
     <>
       <h1 className="color-card-headline">Color Theme Creator</h1>
 
+      <p className="description">Design your own color palettes, create multiple themes, and customize each project individually. Check contrast ratios and accessibility scores to ensure your colors are easy to read and visually consistent.</p>
+
       <ThemeSelector
         themes={themes}
         activeThemeId={activeThemeId}

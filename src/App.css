@@ -1,10 +1,6 @@
 body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  background-color: rgb(
-    128,
-    128,
-    128
-  ); /* a neutral grey is supposed to be the best choice for a true-color representation */
+  background-color: #969696; /* a neutral grey is supposed to be the best choice for a true-color representation */
   padding: 10px;
 }
 
@@ -18,6 +14,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .scroll-to-top-button {

@@ -46,6 +46,24 @@
     margin-bottom: 15px;
   }
 }
+.description {
+  width: 350px; /* same width as color cards */
+  margin: 0 auto;
+  padding: 12px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  text-align: center;
+  color: #444;
+}
+
+
+/* Container for Themes and Create theme */
+.theme-selector-container {
+display: flex;
+justify-content: center;
+margin-top: 10px;
+}
+
 
 .theme-name,
 .choose-a-theme {
