@@ -43,7 +43,36 @@
   }
   .color-card-headline {
     font-size: 30px;
+    margin-bottom: 15px;
   }
+}
+
+.theme-name,
+.choose-a-theme {
+  font-weight: bold;
+}
+
+.new-theme-name-input-field {
+  margin-top: 5px;
+}
+
+.save-new-theme-name-button {
+  margin-left: 5px;
+}
+
+.theme-dropdown {
+  border-radius: 5px;
+}
+
+.add-theme-button,
+.delete-theme-button,
+.edit-theme-button,
+.cancel-renaming-theme-button {
+  margin-left: 5px;
+}
+
+.input-theme-name {
+  margin-top: 5px;
 }
 
 .hex-container {
@@ -99,7 +128,12 @@
 .delete-button,
 .cancel-button,
 .edit-button,
-.copy-button {
+.copy-button,
+.add-theme-button,
+.delete-theme-button,
+.save-new-theme-name-button,
+.edit-theme-button,
+.cancel-renaming-theme-button {
   border-radius: 5px; /* rounded corners */
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -109,7 +143,12 @@
 .delete-button:hover,
 .cancel-button:hover,
 .edit-button:hover,
-.copy-button:hover {
+.copy-button:hover,
+.add-theme-button:hover,
+.delete-theme-button:hover,
+.save-new-theme-name-button:hover,
+.edit-theme-button:hover,
+.cancel-renaming-theme-button:hover {
   transform: scale(1.05);
 }
 

@@ -3,12 +3,78 @@ import Color from "./Components/Color/Color";
 import ColorForm from "./Components/ColorForm/ColorForm";
 import "./App.css";
 import useLocalStorageState from "use-local-storage-state";
+import { useState } from "react";
+import ThemeSelector from "./Components/ThemeSelector/ThemeSelector";
+import { initialThemes } from "./lib/themes";
+import ThemeForm from "./Components/ThemeForm/ThemeForm";
 
 function App() {
+  /* choose between themes */
+  const [themes, setThemes] = useLocalStorageState("themes", {
+    defaultValue: initialThemes,
+  });
+  const [activeThemeId, setActiveThemeId] =
+    useState("t1"); /* shows the default theme */
+
   /* switch useState for useLocalStorageState */
   const [colors, setColors] = useLocalStorageState("colors", {
     defaultValue: initialColors,
   });
+
+  /* find the active theme */
+  const activeTheme = themes.find((theme) => {
+    return theme.id === activeThemeId;
+  });
+
+  const activeThemeColors = colors.filter((color) => {
+    return activeTheme?.colors.includes(
+      color.id,
+    ); /* ? bedeutet: nur ausführen, wenn activeTheme existiert */
+  });
+
+  /* --- add new Theme --- */
+  function addTheme(newTheme) {
+    setThemes([...themes, newTheme]);
+  }
+
+  /* --- edit Theme --- */
+function editTheme(updatedTheme) {
+  // not edit default theme
+  if (updatedTheme.id === "t1") {
+    return;
+  }
+
+  const updatedThemes = themes.map((theme) => {
+    if (theme.id === updatedTheme.id) {
+      return updatedTheme;
+    } else {
+      return theme;
+    }
+  });
+
+  setThemes(updatedThemes);
+}
+
+
+  /* --- delete Theme --- */
+  function deleteTheme(id) {
+  // not delete default theme
+  if (id === "t1") {
+    return;
+  }
+
+  // delete theme
+  const updatedThemes = themes.filter((theme) => {
+    return theme.id !== id;
+  });
+
+  setThemes(updatedThemes);
+
+  // back to default theme if the deleted theme was active
+  if (activeThemeId === id) {
+    setActiveThemeId("t1");
+  }
+}
 
   /* --- Contrast Checker --- */
   async function fetchContrast(fcolor, bcolor) {
@@ -17,7 +83,7 @@ function App() {
     );
 
     const data = await response.json();
-    console.log ("contrast response: ", data);
+    console.log("contrast response: ", data);
     return data;
   }
 
@@ -31,7 +97,20 @@ function App() {
       AA: contrast.AA,
     };
 
-    setColors([colorWithContrast, ...colors]);
+    setColors((currentColors) => [colorWithContrast, ...currentColors]);
+
+    /* color zu Theme hinzufügen */
+    const updatedThemes = themes.map((theme) => {
+      if (theme.id === activeThemeId) {
+        return {
+          ...theme,
+          colors: [...theme.colors, colorWithContrast.id],
+        };
+      } else {
+        return theme;
+      }
+    });
+    setThemes(updatedThemes);
   }
 
   /* --- Edit a color (with contrast checker --- */
@@ -66,9 +145,22 @@ function App() {
       return color.id !== id;
     });
 
+    /* map to change an object in array, filter to delete from an array */
+    const updatedThemes = themes.map((theme) => {
+      if (theme.id === activeThemeId) {
+        return {
+          ...theme,
+          colors: theme.colors.filter((colorId) => colorId !== id),
+        };
+      } else {
+        return theme;
+      }
+    });
+
     setColors(
       updatedColors,
     ); /* setColors changes the state. Only App owns the state, so only App can update i */
+    setThemes(updatedThemes);
   }
 
   /* to scroll back to the top of the page */
@@ -83,17 +175,26 @@ function App() {
     <>
       <h1 className="color-card-headline">Color Theme Creator</h1>
 
+      <ThemeSelector
+        themes={themes}
+        activeThemeId={activeThemeId}
+        onThemeChange={(event) => setActiveThemeId(event.target.value)}
+        onDeleteTheme={deleteTheme}
+        onEditTheme={editTheme}
+      />
+      <ThemeForm onAddTheme={addTheme} />
+
       {/* form to add new colors */}
       <ColorForm onAddColor={addColor} ariaLabel="Add new color" />
 
       {/* If there are no colors left in the theme after deletion, display a message encouraging users to add new colors. */}
       {/*  for every color: create a Color component and add the matching color to this component 
       add key to uniquely identifiy each color card --> .map()*/}
-      {colors.length === 0 ? (
+      {activeThemeColors.length === 0 ? (
         <p className="add-colors-message">Add new colors!</p>
       ) : (
         <div className="card-container">
-          {colors.map((color) => (
+          {activeThemeColors.map((color) => (
             <Color
               key={color.id}
               color={color}
