@@ -13,6 +13,15 @@
   justify-content: end;
 }
 
+/* make the bottom of the card transparent */
+.glass-morphism-color-card {
+  margin-top: auto;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 .color-card-headline {
   display: flex;
   justify-content: center;
@@ -56,14 +65,12 @@
   color: #444;
 }
 
-
 /* Container for Themes and Create theme */
 .theme-selector-container {
-display: flex;
-justify-content: center;
-margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
-
 
 .theme-name,
 .choose-a-theme {
@@ -100,24 +107,30 @@ margin-top: 10px;
 }
 
 .contrast-checker {
+  display: inline-block;
   border: solid 1px;
   border-radius: 5px;
   font-size: small;
   background-color: white;
   color: black;
-  padding: 1px;
+  padding: 1px 2px 1px 2px;
   margin-bottom: 4px;
 }
 
 /* color for contrast result text */
 .contrast-pass {
   color: rgb(15, 196, 15);
-  font-weight: bold;
 }
 
 .contrast-fail {
   color: rgb(255, 1, 1);
-  font-weight: bold;
+}
+
+.contrast-pass,
+.contrast-fail {
+  display: inline-flex;
+  align-items: center;
+  transform: translateY(3px); /* put icon more towards the bottom */
 }
 
 .hex-text {

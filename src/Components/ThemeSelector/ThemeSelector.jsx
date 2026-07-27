@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   Pencil,
-  Trash2,
+  Trash2
 } from "lucide-react"; /* for icon in edit and delete button */
 
 export default function ThemeSelector({
