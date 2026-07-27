@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
-export default function ThemeForm({ onAddTheme }) {
+export default function ThemeForm({ onAddTheme, ariaLabel }) {
 const [nameTheme, setNameTheme] = useState("");
 
 function handleSubmit(event) {
@@ -20,7 +20,7 @@ function handleSubmit(event) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form aria-label={ariaLabel} onSubmit={handleSubmit}>
         <div className="theme-selector-container">
       <label htmlFor="theme-name" className="theme-name">Create theme: </label>
 
