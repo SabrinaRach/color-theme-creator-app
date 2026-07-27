@@ -1,6 +1,6 @@
 body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  background-color: #969696; /* a neutral grey is supposed to be the best choice for a true-color representation */
+  background-color: #bdbcbc; /* a neutral grey is supposed to be the best choice for a true-color representation */
   padding: 10px;
 }
 
@@ -8,6 +8,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .scroll-button-container {

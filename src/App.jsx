@@ -173,10 +173,12 @@ function editTheme(updatedTheme) {
 
   return (
     <>
+    <header>
       <h1 className="color-card-headline">Color Theme Creator</h1>
 
-      <p className="description">Design your own color palettes, create multiple themes, and customize each project individually. Check contrast ratios and accessibility scores to ensure your colors are easy to read and visually consistent.</p>
-
+      <p className="description" id="page-description">Design your own color palettes, create multiple themes, and customize each project individually. Check contrast ratios and accessibility scores to ensure your colors are easy to read and visually consistent.</p>
+</header>
+<main aria-describedby="page-description">
       <ThemeSelector
         themes={themes}
         activeThemeId={activeThemeId}
@@ -184,7 +186,7 @@ function editTheme(updatedTheme) {
         onDeleteTheme={deleteTheme}
         onEditTheme={editTheme}
       />
-      <ThemeForm onAddTheme={addTheme} />
+      <ThemeForm onAddTheme={addTheme} ariaLabel="Add new theme" />
 
       {/* form to add new colors */}
       <ColorForm onAddColor={addColor} ariaLabel="Add new color" />
@@ -193,9 +195,9 @@ function editTheme(updatedTheme) {
       {/*  for every color: create a Color component and add the matching color to this component 
       add key to uniquely identifiy each color card --> .map()*/}
       {activeThemeColors.length === 0 ? (
-        <p className="add-colors-message">Add new colors!</p>
+        <p className="add-colors-message" role="status">Add new colors!</p>
       ) : (
-        <div className="card-container">
+        <ul className="card-container">
           {activeThemeColors.map((color) => (
             <Color
               key={color.id}
@@ -204,13 +206,14 @@ function editTheme(updatedTheme) {
               onEditColor={editColor}
             />
           ))}
-        </div>
+        </ul>
       )}
       <div className="scroll-button-container">
-        <button onClick={scrollToTop} className="scroll-to-top-button">
+        <button onClick={scrollToTop} className="scroll-to-top-button" aria-label="Scroll back to top">
           ↑ Top
         </button>
       </div>
+      </main>
     </>
   );
 }

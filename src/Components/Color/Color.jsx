@@ -31,6 +31,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
   }
 
   return (
+    <li>
     <article
       className="color-card"
       aria-label={`Color ${color.role}`}
@@ -118,5 +119,6 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
       )}
       </div>
     </article>
+    </li>
   );
 }
