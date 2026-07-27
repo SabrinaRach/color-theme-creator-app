@@ -107,24 +107,30 @@
 }
 
 .contrast-checker {
+  display: inline-block;
   border: solid 1px;
   border-radius: 5px;
   font-size: small;
   background-color: white;
   color: black;
-  padding: 1px;
+  padding: 1px 2px 1px 2px;
   margin-bottom: 4px;
 }
 
 /* color for contrast result text */
 .contrast-pass {
   color: rgb(15, 196, 15);
-  font-weight: bold;
 }
 
 .contrast-fail {
   color: rgb(255, 1, 1);
-  font-weight: bold;
+}
+
+.contrast-pass,
+.contrast-fail {
+  display: inline-flex;
+  align-items: center;
+  transform: translateY(3px); /* put icon more towards the bottom */
 }
 
 .hex-text {

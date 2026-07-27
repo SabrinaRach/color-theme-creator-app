@@ -2,7 +2,7 @@ import "./Color.css";
 import { useState } from "react";
 import ColorForm from "../ColorForm/ColorForm";
 import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
-import { Pencil, Trash2 } from "lucide-react"; /* for icon in edit and delete button */
+import { Pencil, Trash2, CircleCheck, CircleAlert } from "lucide-react"; /* for icon in edit and delete button and contrast checker */
 
 /* Each color card displays: siehe dafür colors.js
 hex value of the color
@@ -58,7 +58,11 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
         <span
           className={color.AA === "pass" ? "contrast-pass" : "contrast-fail"}
         >
-          {color.AA === "pass" ? "good" : "needs adjustment"}
+          {color.AA === "pass" ? (
+    <CircleCheck size={17} />
+  ) : (
+    <CircleAlert size={17} />
+  )}
         </span>{" "}
         (Ratio: {color.ratio}){" "}
       </p>
