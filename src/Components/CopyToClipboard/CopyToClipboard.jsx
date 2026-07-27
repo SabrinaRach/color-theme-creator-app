@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Copy } from "lucide-react"; /* for icon in copy button */
 
 /* Clipboard.writeText() is part of the Clipboard API in the browser. 
 It allows a website to write text to your operating system's clipboard. */
@@ -29,7 +30,13 @@ export default function CopyToClipboard({ text }) {
 
   return (
     <>
-      <button onClick={copyText} className="copy-button" aria-label={`Copy ${text} to clipboard`}>Copy</button>
+      <button
+        onClick={copyText}
+        className="copy-button"
+        aria-label={`Copy ${text} to clipboard`}
+      >
+        <Copy size={20} />
+      </button>
       {copied && <p role="status">Copied successfully!</p>}{" "}
       {/* means: if copied is true show the message; role="status" is for screenreaders to inform users when the content changes> */}
     </>
