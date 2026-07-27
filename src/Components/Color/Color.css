@@ -13,6 +13,15 @@
   justify-content: end;
 }
 
+/* make the bottom of the card transparent */
+.glass-morphism-color-card {
+  margin-top: auto;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 .color-card-headline {
   display: flex;
   justify-content: center;
@@ -56,14 +65,12 @@
   color: #444;
 }
 
-
 /* Container for Themes and Create theme */
 .theme-selector-container {
-display: flex;
-justify-content: center;
-margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
-
 
 .theme-name,
 .choose-a-theme {

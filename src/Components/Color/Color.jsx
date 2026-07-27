@@ -39,6 +39,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
         color: color.contrastText,
       }}
     >
+      <div className="glass-morphism-color-card">
       <div className="hex-container">
         <p className="hex-text">{color.hex}</p>
         <CopyToClipboard
@@ -46,6 +47,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
           aria-label={`Copy ${color.hex} to clipboard`}
         />
       </div>
+
 
       <p className="role-text">{color.role}</p>
       <p className="contrast-text">contrast: {color.contrastText}</p>
@@ -110,6 +112,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
           )}
         </>
       )}
+      </div>
     </article>
   );
 }
