@@ -31,7 +31,7 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
   }
 
   return (
-    <li>
+    <li className={showEdit ? "editing-card" : ""}>
     <article
       className="color-card"
       aria-label={`Color ${color.role}`}
@@ -69,11 +69,13 @@ export default function Color({ color, onDeleteColor, onEditColor }) {
       </p>
 
       {showEdit ? (
+        <div className="edit-container">
         <ColorForm
           color={color}
           onEditColor={onEditColor}
           onFinishEdit={handleFinishEdit} /* closes the edit mode */
         />
+        </div>
       ) : (
         <>
           {showConfirmation === true ? (
