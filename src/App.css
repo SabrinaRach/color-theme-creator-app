@@ -1,6 +1,6 @@
 body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  background-color: #bdbcbc; /* a neutral grey is supposed to be the best choice for a true-color representation */
+  background-color: #e9e9e9; /* a neutral grey is supposed to be the best choice for a true-color representation */
   padding: 10px;
 }
 
@@ -29,6 +29,7 @@ body {
 
 .scroll-to-top-button:hover {
   transform: scale(1.05);
+  background-color: #dcdcdc;
 }
 
 /* ---- Responsive Design: Desktop und Tablet ---- */
