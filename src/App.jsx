@@ -202,6 +202,7 @@ function App() {
         </p>
       </header>
       <main aria-describedby="page-description">
+        <div className="theme-selector-and-create-theme-container">
         <ThemeSelector
           themes={themes}
           activeThemeId={activeThemeId}
@@ -210,7 +211,7 @@ function App() {
           onEditTheme={editTheme}
         />
         <ThemeForm onAddTheme={addTheme} ariaLabel="Add new theme" />
-
+</div>
         {/* form to add new colors */}
         <ColorForm onAddColor={addColor} ariaLabel="Add new color" />
 
